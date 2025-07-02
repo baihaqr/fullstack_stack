@@ -24,7 +24,7 @@ export default async function Page() {
        
         <div className="bg-white rounded-lg shadow-md p-6">
 
-          <Link className="ml-2 my-10" href="/dashboard/Kendaraan/create">  <Button>+ Tambah</Button> </Link> 
+          <Link className="ml-2 my-10" href="/dashboard/kendaraan/create">  <Button>+ Tambah</Button> </Link> 
 
         {kendaraan.length > 0 ? (
           <KendaraanTable kendaraan={kendaraan} />

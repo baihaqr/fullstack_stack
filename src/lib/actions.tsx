@@ -1,13 +1,9 @@
 'use server'
 
-import { PrismaClient } from '../generated/prisma/client'
+import { prisma } from './prisma'
     
-const prisma = new PrismaClient()
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-
-
-
 
 
 export async function getKendaraan() {
@@ -42,7 +38,7 @@ export async function createKendaraan(formData: FormData){
         })
        
         revalidatePath('/dashboard/kendaraan')
-        redirect('/dashboard/kendaraan')
+        return  redirect('/dashboard/kendaraan')
         
      } catch (error) {
         
@@ -68,7 +64,7 @@ export async function  updateKendaraan(id: number, formData: FormData) {
     
     
    
-    revalidatePath('/dashboard/kendaraan')
+    //revalidatePath('/dashboard/kendaraan')
     redirect('/dashboard/kendaraan')
   } catch (error) {
     console.error('Update failed:', error)

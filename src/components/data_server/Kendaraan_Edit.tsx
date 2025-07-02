@@ -13,13 +13,6 @@ import {
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 
 interface Kendaraan {
@@ -56,19 +49,20 @@ export default function KendaraanEditForm({ kendaraan }: Props) {
             />
           </div>
 
-          {/* Jenis */}
+          {/* Jenis - Menggunakan HTML select biasa */}
           <div className="space-y-2">
             <Label htmlFor="jenis">Jenis</Label>
-            <Select name="jenis" defaultValue={kendaraan.jenis}>
-              <SelectTrigger>
-                <SelectValue placeholder="Pilih jenis kendaraan" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="SUV">SUV</SelectItem>
-                <SelectItem value="MPV">MPV</SelectItem>
-                <SelectItem value="SEDAN">SEDAN</SelectItem>
-              </SelectContent>
-            </Select>
+            <select
+              id="jenis"
+              name="jenis"
+              defaultValue={kendaraan.jenis}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              <option value="">Pilih Jenis Kendaraan</option>
+              <option value="SUV">SUV</option>
+              <option value="MPV">MPV</option>
+              <option value="SEDAN">SEDAN</option>   
+            </select>
           </div>
 
           {/* Jumlah Stok */}
@@ -81,6 +75,7 @@ export default function KendaraanEditForm({ kendaraan }: Props) {
                 type="number"
                 defaultValue={kendaraan.jumlah_stok}
                 required
+                min="0"
               />
             </div>
 
@@ -92,6 +87,7 @@ export default function KendaraanEditForm({ kendaraan }: Props) {
                 type="number"
                 defaultValue={kendaraan.harga}
                 required
+                min="0"
               />
             </div>
           </div>

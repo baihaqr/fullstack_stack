@@ -92,7 +92,7 @@ export default function Kendaraan_Create() {
           <Button variant="outline" asChild>
             <Link href="/dashboard/kendaraan">Batal</Link>
           </Button>
-          <Button type="submit">Simpan Kendaraan Baru</Button>
+          <Button type="submit">  Tambah</Button>
         </CardFooter>
       </form>
     </Card>

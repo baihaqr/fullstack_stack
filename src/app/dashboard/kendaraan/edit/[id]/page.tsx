@@ -9,8 +9,8 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 
 import Image from "next/image";
 
-import  KendaraanEditForm from '../../../../../components/data_server/Kendaraan_Edit'
-import { PrismaClient } from '@/generated/prisma/client'
+import  KendaraanEditForm from '@/components/data_server/Kendaraan_Edit'
+import { PrismaClient } from '../../../../../../prisma/generated/prisma/client'
 
 
 

@@ -20,7 +20,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-
+ import { useRouter } from 'next/navigation';
 
 import {deleteKendaraan} from '@/lib/actions'
 
@@ -39,6 +39,7 @@ interface Props {
 }
 
 const KendaraanTable: React.FC<Props> = ({ kendaraan }) => {
+  const router = useRouter()
   const [search, setSearch] = useState('')
 
   // Filter data
@@ -47,6 +48,11 @@ const KendaraanTable: React.FC<Props> = ({ kendaraan }) => {
     : kendaraan.filter((item) =>
         item.merek.toLowerCase().includes(search.toLowerCase())
       )
+
+ const handleClick = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+  e.preventDefault();
+  router.push(`/dashboard/kendaraan/edit/${id}`);
+};
 
   return (
     <Card className="w-full mt-2">
@@ -94,11 +100,11 @@ const KendaraanTable: React.FC<Props> = ({ kendaraan }) => {
                   </TableCell>
                   <TableCell>
                     <div className="flex space-x-2">
-                      <Link className="rounded-lg shadow-lg" href={`/dashboard/kendaraan/edit/${item.id}`}>
-                        <Button size="sm">
+                   
+                        <Button size="sm" onClick={(e) => handleClick(e, item.id)}>
                           Edit
                         </Button>
-                      </Link>
+                    
                       <Button onClick={() => deleteKendaraan(item.id)} variant="destructive" size="sm">
                         Hapus
                       </Button>
