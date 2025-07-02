@@ -1,3 +1,4 @@
+"use client"
 import { AppSidebar } from "@/components/app-sidebar"
 import { notFound } from 'next/navigation'
 import { ChartAreaInteractive } from "@/components/chart-area-interactive"
@@ -9,7 +10,7 @@ import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import Image from "next/image";
 
 import  KendaraanEditForm from '../../../../../components/data_server/Kendaraan_Edit'
-import { PrismaClient } from '../../../../../generated/prisma'
+import { PrismaClient } from '@/generated/prisma/client'
 
 
 
